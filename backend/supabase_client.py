@@ -1,8 +1,22 @@
-from supabase import create_client, Client
 import os
+from supabase import create_client, Client
+import logging
 
-# Load from environment variables
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://your-project.supabase.co")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY", "your-anon-or-service-key")
+logger = logging.getLogger("uvicorn")
 
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+# Get environment variables
+supabase_url = os.getenv("SUPABASE_URL")
+supabase_key = os.getenv("SUPABASE_KEY")
+
+# Initialize Supabase client
+supabase = None
+
+if supabase_url and supabase_key:
+    try:
+        supabase: Client = create_client(supabase_url, supabase_key)
+        logger.info("✅ Supabase client initialized successfully")
+    except Exception as e:
+        logger.error(f"❌ Failed to initialize Supabase client: {e}")
+        supabase = None
+else:
+    logger.warning("⚠️ Supabase credentials not found. Chat history will not be saved.")

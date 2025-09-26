@@ -1,20 +1,372 @@
 {
-  "intents": [
-    {
-      "tag": "greeting",
-      "patterns": ["hello", "hi", "hey", "good morning"],
-      "response": "Hello! How can I help you today?"
-    },
-    {
-      "tag": "goodbye",
-      "patterns": ["goodbye", "bye", "see you later"],
-      "response": "Goodbye! Have a great day!"
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["thank you", "thanks"],
-      "response": "You're welcome! Happy to help!"
-    }
-  ],
-  "fallback": "Sorry, I don't understand that yet."
+  "greetings": {
+    "patterns": [
+      "hello", "hi", "hey", "good morning", "good afternoon", "good evening", 
+      "greetings", "salutations", "what's up", "howdy", "hiya"
+    ],
+    "responses": [
+      "Hello! How can I help you today?",
+      "Hi there! What can I do for you?",
+      "Hey! Nice to meet you. What's on your mind?",
+      "Greetings! How may I assist you?",
+      "Hello! I'm here and ready to chat. What would you like to discuss?",
+      "Hi! Great to see you. How can I make your day better?",
+      "Hey there! Welcome! What brings you here today?"
+    ]
+  },
+  "how_are_you": {
+    "patterns": [
+      "how are you", "how do you do", "what's up", "how's it going", 
+      "how are things", "how's your day", "how have you been"
+    ],
+    "responses": [
+      "I'm doing well, thank you! How about you?",
+      "I'm great! Thanks for asking. How can I help?",
+      "All good here! What brings you to chat today?",
+      "I'm functioning perfectly! How are you doing?",
+      "I'm doing fantastic! Ready to help with whatever you need.",
+      "I'm having a great day! How about yourself?",
+      "I'm doing wonderfully, thanks for asking! What's on your mind?"
+    ]
+  },
+  "goodbye": {
+    "patterns": [
+      "bye", "goodbye", "see you", "farewell", "take care", 
+      "catch you later", "until next time", "gotta go", "talk to you later"
+    ],
+    "responses": [
+      "Goodbye! Have a great day!",
+      "See you later! Take care!",
+      "Farewell! Come back anytime!",
+      "Bye! It was nice chatting with you!",
+      "Take care! Hope to see you again soon!",
+      "Goodbye! Wishing you all the best!",
+      "See you next time! Have a wonderful day!"
+    ]
+  },
+  "thanks": {
+    "patterns": [
+      "thank you", "thanks", "appreciate it", "grateful", 
+      "much appreciated", "thanks a lot", "thank you so much"
+    ],
+    "responses": [
+      "You're welcome! Happy to help!",
+      "No problem at all!",
+      "Glad I could help!",
+      "Anytime! That's what I'm here for!",
+      "You're very welcome! Is there anything else I can help with?",
+      "My pleasure! Feel free to ask if you need anything else!",
+      "Don't mention it! I'm here whenever you need assistance!"
+    ]
+  },
+  "name": {
+    "patterns": [
+      "what's your name", "who are you", "your name", "what are you called",
+      "what should I call you", "introduce yourself"
+    ],
+    "responses": [
+      "I'm a friendly chatbot here to help you!",
+      "I'm your AI assistant. You can call me Bot!",
+      "I'm an AI chatbot designed to assist and chat with you!",
+      "I'm your digital assistant. How can I help today?",
+      "I'm an AI-powered chatbot, here to make your day easier!",
+      "You can call me your friendly neighborhood chatbot!",
+      "I'm your AI companion, ready to help with anything you need!"
+    ]
+  },
+  "capabilities": {
+    "patterns": [
+      "what can you do", "help me", "your capabilities", "features",
+      "what are you capable of", "how can you help", "what's your purpose"
+    ],
+    "responses": [
+      "I can chat with you, answer questions, and provide assistance on various topics!",
+      "I'm here to help with conversations, answer questions, and provide information!",
+      "I can assist with general questions, have conversations, and help solve problems!",
+      "I'm capable of chatting, answering questions, and providing helpful information!",
+      "I can help you with a wide variety of tasks - from answering questions to having engaging conversations!",
+      "I'm designed to be your helpful assistant for information, conversation, and problem-solving!",
+      "I can provide information, have meaningful conversations, and help you with various topics and questions!"
+    ]
+  },
+  "weather": {
+    "patterns": [
+      "weather", "temperature", "forecast", "raining", "sunny", "cloudy",
+      "how's the weather", "what's the weather like"
+    ],
+    "responses": [
+      "I don't have access to real-time weather data, but you can check your local weather app or website!",
+      "For current weather information, I'd recommend checking a weather service like Weather.com or your phone's weather app!",
+      "I wish I could tell you the weather, but I don't have access to current weather data. Try asking a weather app!",
+      "For the most accurate weather forecast, check your local weather service or meteorology app!"
+    ]
+  },
+  "time": {
+    "patterns": [
+      "what time is it", "current time", "time", "clock", "what's the time"
+    ],
+    "responses": [
+      "I don't have access to real-time information, but you can check the time on your device!",
+      "For the current time, please check your computer, phone, or clock!",
+      "I'm not able to tell you the current time, but it should be displayed on your device!",
+      "You can find the current time on your device's clock or by asking your voice assistant!"
+    ]
+  },
+  "jokes": {
+    "patterns": [
+      "tell me a joke", "joke", "funny", "make me laugh", "humor", "something funny"
+    ],
+    "responses": [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "What do you call a fake noodle? An impasta!",
+      "Why don't eggs tell jokes? They'd crack each other up!",
+      "What do you call a bear with no teeth? A gummy bear!",
+      "Why did the math book look so sad? Because it had too many problems!",
+      "What's orange and sounds like a parrot? A carrot!"
+    ]
+  },
+  "compliments": {
+    "patterns": [
+      "you're great", "you're awesome", "you're amazing", "good job", 
+      "well done", "you're helpful", "you're smart"
+    ],
+    "responses": [
+      "Thank you so much! That really brightens my day!",
+      "Aww, thank you! You're pretty awesome yourself!",
+      "That's very kind of you to say! I appreciate it!",
+      "Thank you! I try my best to be helpful!",
+      "You're too kind! It means a lot to hear that!",
+      "Thanks! I'm just doing what I love - helping people like you!",
+      "That's so sweet of you! Thank you for the kind words!"
+    ]
+  },
+  "emotions": {
+    "patterns": [
+      "i'm sad", "i'm happy", "i'm angry", "i'm excited", "i'm worried", 
+      "i'm stressed", "i feel", "i'm feeling"
+    ],
+    "responses": [
+      "I hear you. Emotions are important. Would you like to talk about what's going on?",
+      "Thank you for sharing how you're feeling. I'm here to listen if you need to talk.",
+      "It sounds like you're experiencing some strong emotions. Sometimes it helps to talk things through.",
+      "I appreciate you opening up about your feelings. Is there anything specific you'd like to discuss?",
+      "Feelings can be complex. I'm here if you want to share more about what's on your mind.",
+      "It's perfectly normal to have different emotions. Would you like to tell me more about what's happening?"
+    ]
+  },
+  "problems": {
+    "patterns": [
+      "i have a problem", "i need help", "can you help me", "i'm stuck",
+      "i don't know what to do", "help me solve"
+    ],
+    "responses": [
+      "I'm here to help! Can you tell me more about the problem you're facing?",
+      "Of course I'd like to help! What specific issue are you dealing with?",
+      "I'll do my best to assist you. Can you describe the problem in more detail?",
+      "Let's work through this together. What exactly is the challenge you're facing?",
+      "I'm ready to help! Please share more details about what you need assistance with.",
+      "Don't worry, we'll figure this out! Can you explain what's going wrong?"
+    ]
+  },
+  "learning": {
+    "patterns": [
+      "teach me", "i want to learn", "how do i learn", "education", 
+      "study", "knowledge", "explain"
+    ],
+    "responses": [
+      "I love helping people learn! What topic are you interested in exploring?",
+      "Learning is wonderful! What subject would you like to know more about?",
+      "That's great that you want to learn! What specific area interests you?",
+      "I'm excited to help you learn something new! What would you like to understand better?",
+      "Education is so important! What topic can I help explain or teach you about?",
+      "I'd be happy to help you learn! What subject or skill are you curious about?"
+    ]
+  },
+  "technology": {
+    "patterns": [
+      "technology", "computer", "software", "programming", "coding", 
+      "artificial intelligence", "ai", "robot"
+    ],
+    "responses": [
+      "Technology is fascinating! What aspect of technology interests you most?",
+      "I love talking about tech! Are you interested in a particular technology topic?",
+      "Technology shapes our world in amazing ways! What would you like to know?",
+      "That's a great topic! Is there a specific technology question you have?",
+      "Technology is constantly evolving! What tech subject can I help you with?",
+      "I enjoy discussing technology! What particular area would you like to explore?"
+    ]
+  },
+  "food": {
+    "patterns": [
+      "food", "hungry", "eat", "cooking", "recipe", "restaurant", 
+      "favorite food", "what should i eat"
+    ],
+    "responses": [
+      "Food is one of life's great pleasures! What kind of cuisine are you in the mood for?",
+      "I love talking about food! Are you looking for cooking tips or restaurant suggestions?",
+      "That's making me think about delicious meals! What's your favorite type of food?",
+      "Food brings people together! Are you interested in cooking or trying new restaurants?",
+      "Yum! Food is such a great topic. What culinary adventure are you considering?",
+      "I enjoy food discussions! Are you looking for recipe ideas or dining recommendations?"
+    ]
+  },
+  "hobbies": {
+    "patterns": [
+      "hobby", "hobbies", "interests", "free time", "what do you like to do",
+      "activities", "fun", "entertainment"
+    ],
+    "responses": [
+      "Hobbies are so important for a balanced life! What activities do you enjoy?",
+      "I'd love to hear about your interests! What do you like to do in your free time?",
+      "Hobbies can be so fulfilling! Are you looking to explore new activities?",
+      "That's a great topic! What kind of activities bring you joy?",
+      "Everyone needs good hobbies! What are some things you're passionate about?",
+      "I enjoy learning about people's interests! What hobbies do you have or want to try?"
+    ]
+  },
+  "work": {
+    "patterns": [
+      "work", "job", "career", "office", "boss", "colleague", "workplace",
+      "professional", "business"
+    ],
+    "responses": [
+      "Work is such a big part of life! How are things going in your professional world?",
+      "Career topics are always interesting! What's happening in your work life?",
+      "I understand work can be both rewarding and challenging. What's on your mind about it?",
+      "Professional life has its ups and downs! Is there something work-related you'd like to discuss?",
+      "Work experiences can vary so much! What aspect of your career interests you?",
+      "I'm happy to chat about work topics! What would you like to explore or discuss?"
+    ]
+  },
+  "motivation": {
+    "patterns": [
+      "motivation", "inspire me", "励志", "goals", "dreams", "ambition",
+      "success", "achieve", "motivate"
+    ],
+    "responses": [
+      "You have the power to achieve amazing things! What goals are you working toward?",
+      "Every great journey starts with a single step. What's your next step going to be?",
+      "I believe in your potential! What dreams are you pursuing?",
+      "Success comes to those who persist! What challenges are you ready to overcome?",
+      "You're capable of more than you realize! What aspirations inspire you?",
+      "The best time to start is now! What goal would you like to focus on?",
+      "Your determination can move mountains! What motivates you to keep going?"
+    ]
+  },
+  "advice": {
+    "patterns": [
+      "advice", "what should i do", "suggestion", "recommend", "opinion",
+      "guidance", "counsel"
+    ],
+    "responses": [
+      "I'm happy to offer some thoughts! Can you tell me more about your situation?",
+      "I'd be glad to share some perspective! What specific area do you need guidance on?",
+      "Let me help you think through this! What's the decision or challenge you're facing?",
+      "I'll do my best to provide helpful insights! Can you give me more details?",
+      "Sometimes talking through options helps! What situation would you like advice about?",
+      "I'm here to help you explore your options! What's the context of what you're dealing with?"
+    ]
+  },
+  "travel": {
+    "patterns": [
+      "travel", "vacation", "trip", "holiday", "journey", "destination",
+      "places to visit", "where should i go"
+    ],
+    "responses": [
+      "Travel opens up so many possibilities! Are you planning a trip somewhere?",
+      "I love talking about travel! What kind of destination are you interested in?",
+      "Adventures await! Are you thinking about a vacation or business trip?",
+      "Travel can be so enriching! What type of experience are you looking for?",
+      "There are so many amazing places to explore! What's drawing your wanderlust?",
+      "Travel planning can be exciting! What kind of trip are you considering?"
+    ]
+  },
+  "health": {
+    "patterns": [
+      "health", "fitness", "exercise", "wellness", "healthy", "medical",
+      "doctor", "medicine"
+    ],
+    "responses": [
+      "Health is so important! I'm glad you're thinking about wellness. What aspect interests you?",
+      "Taking care of your health is wonderful! What health topic would you like to discuss?",
+      "Wellness is a journey! Are you looking for general health information or something specific?",
+      "Health and fitness are great topics! What would you like to know more about?",
+      "I appreciate that you're focused on health! What wellness goals are you working on?",
+      "Note: For specific medical concerns, always consult with healthcare professionals! What general health topic can we discuss?"
+    ]
+  },
+  "books": {
+    "patterns": [
+      "book", "books", "reading", "novel", "literature", "author",
+      "recommend a book", "what should i read"
+    ],
+    "responses": [
+      "Books are wonderful! What genres do you enjoy reading?",
+      "I love talking about books! Are you looking for recommendations or want to discuss what you're reading?",
+      "Reading is such a great habit! What type of books capture your interest?",
+      "Literature opens up new worlds! What kind of stories appeal to you?",
+      "Books can be transformative! Are you interested in fiction, non-fiction, or something specific?",
+      "Reading is one of life's great pleasures! What authors or genres do you enjoy?"
+    ]
+  },
+  "music": {
+    "patterns": [
+      "music", "song", "artist", "band", "concert", "instrument",
+      "listen", "playlist", "favorite music"
+    ],
+    "responses": [
+      "Music is universal! What kind of music do you enjoy listening to?",
+      "I love how music can change our mood! What artists or genres are you into?",
+      "Music has such power to move us! Do you have a favorite type or artist?",
+      "There's music for every moment! What's on your playlist these days?",
+      "Music brings so much joy! Are you interested in any particular style or artist?",
+      "The world of music is so diverse! What sounds appeal to you most?"
+    ]
+  },
+  "movies": {
+    "patterns": [
+      "movie", "movies", "film", "cinema", "watch", "netflix",
+      "recommend a movie", "favorite movie"
+    ],
+    "responses": [
+      "Movies are great entertainment! What genres do you enjoy watching?",
+      "I enjoy discussing films! Are you looking for recommendations or want to talk about favorites?",
+      "Cinema offers such variety! What type of movies appeal to you?",
+      "There are so many great films out there! What's your preferred genre?",
+      "Movies can transport us to different worlds! What kind of stories do you like?",
+      "Film is such an art form! What movies have you enjoyed recently?"
+    ]
+  },
+  "sports": {
+    "patterns": [
+      "sports", "football", "basketball", "soccer", "tennis", "game",
+      "team", "athlete", "competition"
+    ],
+    "responses": [
+      "Sports are exciting! Do you follow any particular sports or teams?",
+      "I enjoy sports conversations! What games or activities interest you?",
+      "Athletics bring people together! Are you a fan or do you play sports yourself?",
+      "Sports can be so thrilling! What's your favorite sport to watch or play?",
+      "Competition and teamwork are fascinating! What sports capture your attention?",
+      "There's something for everyone in sports! What athletic activities do you enjoy?"
+    ]
+  },
+  "default": {
+    "patterns": [],
+    "responses": [
+      "That's interesting! Can you tell me more?",
+      "I understand. What would you like to know?",
+      "Hmm, that's a good point. Can you elaborate?",
+      "I see. How can I help you with that?",
+      "That's worth thinking about. What's your perspective?",
+      "Interesting question! Let me think about that.",
+      "I'm here to help. Can you provide more details?",
+      "That's a great topic. What specifically interests you about it?",
+      "I'd love to learn more about your thoughts on this.",
+      "That's something to consider. What brought this to your mind?",
+      "I'm curious to hear more about your viewpoint.",
+      "That's an intriguing subject. What aspects fascinate you most?"
+    ]
+  }
 }
