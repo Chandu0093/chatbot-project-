@@ -2,12 +2,13 @@ import json
 import random
 import re
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List, Tuple
 
 logger = logging.getLogger("uvicorn")
 
 class Chatbot:
     def __init__(self, responses_path: str):
+        """Initialize chatbot with responses from JSON file"""
         self.responses = {}
         self.responses_path = responses_path
         self.load_responses()
@@ -40,15 +41,23 @@ class Chatbot:
             if category == "default":
                 continue
                 
-            for pattern in data["patterns"]:
+            patterns = data.get("patterns", [])
+            for pattern in patterns:
                 # Simple pattern matching
                 if self._matches_pattern(pattern, message_lower):
-                    response = random.choice(data["responses"])
-                    logger.info(f"🤖 Matched category '{category}' with pattern '{pattern}'")
-                    return response
+                    responses = data.get("responses", [])
+                    if responses:
+                        response = random.choice(responses)
+                        logger.info(f"🤖 Matched category '{category}' with pattern '{pattern}'")
+                        return response
         
         # Default response if no pattern matches
-        default_response = random.choice(self.responses["default"]["responses"])
+        default_responses = self.responses.get("default", {}).get("responses", [
+            "I'm not sure how to respond to that. Can you try rephrasing?",
+            "Interesting! Tell me more about that.",
+            "I'm still learning. Can you ask something else?"
+        ])
+        default_response = random.choice(default_responses)
         logger.info("🤖 Using default response")
         return default_response
     
@@ -61,8 +70,13 @@ class Chatbot:
             return pattern_lower in message
         
         # Word boundary match for longer patterns
-        return re.search(r'\b' + re.escape(pattern_lower) + r'\b', message) is not None
+        try:
+            return re.search(r'\b' + re.escape(pattern_lower) + r'\b', message) is not None
+        except re.error:
+            # Fallback to simple substring match if regex fails
+            return pattern_lower in message
     
-    def get_categories(self) -> list:
+    def get_categories(self) -> List[str]:
         """Get list of available response categories"""
         return list(self.responses.keys())
+    

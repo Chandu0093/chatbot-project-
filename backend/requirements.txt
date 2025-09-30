@@ -1,36 +1,41 @@
-# FastAPI Backend Requirements
+# # FastAPI Backend Requirements
+# fastapi>=0.104.0
+# uvicorn[standard]>=0.24.0
+# pydantic>=2.4.0
+# python-multipart>=0.0.6
+
+# # Optional but recommended
+# python-dotenv>=1.0.0
+# PyYAML>=6.0
+
+# # For production deployment
+# gunicorn>=21.2.0
+
+# # Development and testing
+# pytest>=7.0
+# httpx>=0.25.0  # For testing FastAPI
+
+# # If you want to keep other integrations from original requirements:
+# # supabase>=2.8.0
+# # openai>=0.27.0
+# # langchain>=0.0.208
+# # chromadb>=0.3.23
+# # tiktoken>=0.4.0
+# # requests>=2.31.0
+# # flask-jwt-extended>=4.4.4  # Note: FastAPI has different auth methods
+# # bcrypt>=4.0.1
+# # email-validator>=2.0.0
+# # flask-mail>=0.9.1  # FastAPI equivalent: fastapi-mail
+# # flask-limiter>=2.6.0  # FastAPI equivalent: slowapi
+# # redis>=4.5.5
+# # rq>=1.13.0
+# # celery>=5.4.7
+# # flower>=1.0.0
+# # sqlalchemy>=2.0.20
+# # psycopg2-binary>=2.9.6
+# # alembic>=1.11.1
 fastapi>=0.104.0
 uvicorn[standard]>=0.24.0
 pydantic>=2.4.0
-python-multipart>=0.0.6
-
-# Optional but recommended
 python-dotenv>=1.0.0
-PyYAML>=6.0
-
-# For production deployment
-gunicorn>=21.2.0
-
-# Development and testing
-pytest>=7.0
-httpx>=0.25.0  # For testing FastAPI
-
-# If you want to keep other integrations from original requirements:
-# supabase>=2.8.0
-# openai>=0.27.0
-# langchain>=0.0.208
-# chromadb>=0.3.23
-# tiktoken>=0.4.0
-# requests>=2.31.0
-# flask-jwt-extended>=4.4.4  # Note: FastAPI has different auth methods
-# bcrypt>=4.0.1
-# email-validator>=2.0.0
-# flask-mail>=0.9.1  # FastAPI equivalent: fastapi-mail
-# flask-limiter>=2.6.0  # FastAPI equivalent: slowapi
-# redis>=4.5.5
-# rq>=1.13.0
-# celery>=5.4.7
-# flower>=1.0.0
-# sqlalchemy>=2.0.20
-# psycopg2-binary>=2.9.6
-# alembic>=1.11.1
+supabase>=2.0.0
